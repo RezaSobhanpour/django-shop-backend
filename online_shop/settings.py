@@ -16,6 +16,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_render_partial',
     'auth_shop',
+    'size_shop',
+    'product_shop',
+    'color_shop'
+
 ]
 
 MIDDLEWARE = [
