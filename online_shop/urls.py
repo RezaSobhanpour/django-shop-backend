@@ -12,7 +12,8 @@ urlpatterns = [
 
     #
     # apps
-    path('', include('auth_shop.urls'))
+    path('', include('auth_shop.urls')),
+    path('product/', include('product_shop.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
