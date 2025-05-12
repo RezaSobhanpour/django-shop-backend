@@ -3,6 +3,7 @@ import random
 
 from django.db import models
 
+from category_shop.models import Category
 from color_shop.models import ClotheColor
 from size_shop.models import ClotheSize
 
@@ -28,6 +29,10 @@ class Product(models.Model):
     exists = models.BooleanField(default=False)
     color = models.ManyToManyField(ClotheColor)
     size = models.ManyToManyField(ClotheSize)
+    category = models.ManyToManyField(Category)
+    special = models.BooleanField(default=False)
+    created_at = models.DateField(auto_now_add=True, null=True, blank=True)
+    sold = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

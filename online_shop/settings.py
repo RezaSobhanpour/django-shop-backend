@@ -18,7 +18,11 @@ INSTALLED_APPS = [
     'auth_shop',
     'size_shop',
     'product_shop',
-    'color_shop'
+    'color_shop',
+    'category_shop',
+    'aboutus_shop',
+    'contact_us_shop',
+    'shopping_bag_shop'
 
 ]
 
@@ -94,3 +98,5 @@ MEDIA_ROOT = BASE_DIR / 'statics/media_files'
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'auth_shop.User'

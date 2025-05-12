@@ -1,14 +1,14 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 from auth_shop.forms import LoginForm, SigninForm
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 
-def auth_page(requset):
+def auth_page(request):
     return redirect(reverse('login'))
 
 
@@ -44,7 +44,6 @@ def signin_page(request):
             last_name=last_name,
             password=password
         )
-        user.is_staff = False
         user.save()
         authenticate_user = authenticate(request, username=email, password=password)
         login(request, authenticate_user)
@@ -55,6 +54,7 @@ def signin_page(request):
     return render(request, 'auth_shop/signin.html', context)
 
 
+@login_required(login_url='login')
 def logout_page(request):
     logout(request)
     return redirect(reverse('home_page'))

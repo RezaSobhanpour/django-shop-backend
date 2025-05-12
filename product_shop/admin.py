@@ -7,8 +7,10 @@ class ProductAdmin(admin.ModelAdmin):
         '__str__',
         'title',
         'price',
-        'exists'
+        'exists',
+        'special',
+        'sold'
     ]
 
 
-admin.site.register(Product,ProductAdmin)
+admin.site.register(Product, ProductAdmin)
